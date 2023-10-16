@@ -1,27 +1,48 @@
 # SimplifyUnitTest
 
+This repository is used for demonstrating the topic `Simplify Angular unit test` which is presented at `Ho Chi Minh - Angular meetup Oct 26, 2023`,. The article for this repo can be read here.
+
+## Project configuration
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
-## Development server
+And there are some changes to the default Angular project created by Angular CLI:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Using `jest` framework for writing tests
+- Using `yarn` for the package installation
+- The `yarn run test` will trigger `jest --verbose` to provide the list of test cases
 
-## Code scaffolding
+## Sample branches
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### The `main` branch
 
-## Build
+This is the default branch, contains only basic configurations to prepare for the samples
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Case #1: Focusing on the component and its behaviors
 
-## Running unit tests
+The usage branches:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- `01-sample-one-before`: Presenting the fact we try to test non-related child components into a unit-test.
+- `01-sample-one-after`: Presenting we can simplify it without testing the child components.
 
-## Running end-to-end tests
+### Case #2: Simulate the dependency injections (if applicable) instead of combining them
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The usage branches:
 
-## Further help
+- `02-sample-two-before`:
+- `02-sample-two-after`:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Case #3: Trying 3rd testing libraries for complex marble testing
+
+The usage branches:
+
+- `03-sample-three-before`:
+- `03-sample-three-after`:
+
+### Case (n): TBA
+
+(Feel free to add more use cases)
+
+## Ending words
+
+Thank you for the support from @trungk for arranging the meetup to share this topic. Also I send thanks to all people joining and sharing this document.
