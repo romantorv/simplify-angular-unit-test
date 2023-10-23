@@ -3,6 +3,7 @@ import { UrlService } from '../services/url.service';
 import { SampleTwoComponent } from './sample-two.component';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { CommonModule } from '@angular/common';
+import { MockConvertToSnack } from '../pipes/string.pipe.mock';
 
 describe('SampleTwoComponent', () => {
   let fixture: ComponentFixture<SampleTwoComponent>;
@@ -10,7 +11,7 @@ describe('SampleTwoComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SampleTwoComponent],
+      declarations: [SampleTwoComponent, MockConvertToSnack],
       providers: [
         { provide: UrlService, useValue: { apiRoot: 'mockAPIPath' } },
       ],
