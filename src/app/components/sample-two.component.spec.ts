@@ -3,7 +3,7 @@ import { UrlService } from '../services/url.service';
 import { SampleTwoComponent } from './sample-two.component';
 import { NO_ERRORS_SCHEMA } from '@angular/compiler';
 import { CommonModule } from '@angular/common';
-import { MockConvertToSnack } from '../pipes/string.pipe.mock';
+import { MockConvertToSnack } from '../pipes/string.pipe.mocks';
 
 describe('SampleTwoComponent', () => {
   let fixture: ComponentFixture<SampleTwoComponent>;
