@@ -25,16 +25,24 @@ describe('SampleTwoComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('h1').textContent).toContain(
+      'Case #2: Having services with pipes'
+    );
   });
 
   it('should render correct content', () => {
-    component.name = 'John Doe';
+    const inputName = 'John Doe';
+    component.name = inputName;
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('p').textContent).toContain('Hello John Doe');
+    expect(compiled.querySelector('p').textContent).toContain(
+      `Hello ${inputName}`
+    );
   });
 
-  it('should return correct value', () => {
-    expect(component.fetchURL).toContain('mockAPIPath');
+  describe('fetchURL', () => {
+    it('should return correct value', () => {
+      expect(component.fetchURL).toBe('mockAPIPath');
+    });
   });
 });
