@@ -1,68 +1,76 @@
-import { createEffect } from '@ngrx/effects';
 import {
   createAction,
-  createFeatureSelector,
+  props,
   createReducer,
-  createSelector,
   on,
+  createFeatureSelector,
+  createSelector,
 } from '@ngrx/store';
 
-// Actions
-export const addNumber = createAction(
-  '[Counter] Add number',
-  (value: number) => ({ value })
-);
-export const addSuccess = createAction(
-  '[Counter] Add number success',
-  (value: number) => ({ value })
-);
-export const addFail = createAction(
-  '[Counter] Add number fail',
-  (error: Error) => ({ error })
-);
-export const reset = createAction('[Counter] Reset');
-
-// Reducer
-interface CounterState {
-  counter: number;
+export interface CounterState {
+  value: number;
   calculating: boolean;
   error: Error | null;
 }
 
-export const defaultState: CounterState = {
-  counter: 0,
+const initialState: CounterState = {
+  value: 0,
   calculating: false,
   error: null,
 };
 
+// Actions
+export const addValue = createAction(
+  '[COUNTER] Add a number',
+  props<{ value: number }>()
+);
+export const addValueSuccess = createAction(
+  '[COUNTER] Add number success',
+  props<{ result: number }>()
+);
+export const addValueFailed = createAction(
+  '[COUNTER] Failed to add number',
+  props<{ error: Error }>()
+);
+export const resetValue = createAction('[COUNTER] Reset number');
+
+// Reducer
 export const counterReducer = createReducer(
-  defaultState,
-  on(addNumber, (state) => ({ ...state, calculating: true, error: null })),
-  on(addSuccess, (state, payload) => ({
+  initialState,
+  on(addValue, (state) => {
+    return {
+      ...state,
+      calculating: true,
+      error: null,
+    };
+  }),
+  on(addValueSuccess, (state, action) => {
+    return {
+      ...state,
+      calculating: false,
+      error: null,
+      value: action.result,
+    };
+  }),
+  on(addValueFailed, (state, action) => ({
     ...state,
+    error: action.error,
     calculating: false,
-    counter: payload.value,
-    error: null,
   })),
-  on(addFail, (state, payload) => ({
-    ...state,
-    calculating: false,
-    error: payload.error,
-  })),
-  on(reset, () => defaultState)
+  on(resetValue, () => initialState)
 );
 
-// Selector
-export const getCounterState = createFeatureSelector<CounterState>('counter');
+// Selectors
+const counterState = createFeatureSelector<CounterState>('counter');
+export const getCounterValue = createSelector(
+  counterState,
+  (state) => state.value
+);
 export const getCounterCalculating = createSelector(
-  getCounterState,
+  counterState,
   (state) => state.calculating
 );
 export const getCounterError = createSelector(
-  getCounterState,
+  counterState,
   (state) => state.error
-);
-export const getCounterValue = createSelector(
-  getCounterState,
-  (state) => state.counter
 );
