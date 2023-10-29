@@ -19,7 +19,6 @@ describe('SampleTwoComponent', () => {
           useClass: MockUrlService,
         },
       ],
-      imports: [CommonModule],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
 
