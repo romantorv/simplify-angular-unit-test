@@ -1605,6 +1605,18 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.19.4.tgz#d46a6e220a717f31f39ae80f49477cc3220be0f0"
   integrity sha512-HP0GDNla1T3ZL8Ko/SHAS2GgtjOg+VmWnnYLhuTksr++EnduYB0f3Y2LzHsUwb2iQ13JGoY6G3R8h6Du/WG6uA==
 
+"@hirez_io/auto-spies-core@3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@hirez_io/auto-spies-core/-/auto-spies-core-3.0.0.tgz#316b206b5f143ce3f24da21af4f3454c1aa26d5e"
+  integrity sha512-au7s7/AqPU5CJhv0slVjmZqEv5Uaf2nj7pYFepp5g3B7EocEeNy7bZ74x5RJldHYtW0R8OptV2mZfwaDOfcNCA==
+  dependencies:
+    javascript-stringify "2.1.0"
+
+"@hirez_io/observer-spy@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@hirez_io/observer-spy/-/observer-spy-2.2.0.tgz#3b1df531ba333a9a6cbbec0333d3fbdc4c68cc3c"
+  integrity sha512-G9nv87vjRILgB/X1AtKBv1DZX7yXSYAOCXon/f+QULKoXVhVehYUF5Lv0SQ97ebf1sA48Z2CyQ9h2v4Pz6DgaQ==
+
 "@isaacs/cliui@^8.0.2":
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/@isaacs/cliui/-/cliui-8.0.2.tgz#b37667b7bc181c168782259bab42474fbf52b550"
@@ -4662,6 +4674,18 @@ jackspeak@^2.3.5:
     "@isaacs/cliui" "^8.0.2"
   optionalDependencies:
     "@pkgjs/parseargs" "^0.11.0"
+
+javascript-stringify@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/javascript-stringify/-/javascript-stringify-2.1.0.tgz#27c76539be14d8bd128219a2d731b09337904e79"
+  integrity sha512-JVAfqNPTvNq3sB/VHQJAFxN/sPgKnsKrCwyRt15zwNCdrMMJDdcEOdubuy+DuJYYdm0ox1J4uzEuYKkN+9yhVg==
+
+jest-auto-spies@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/jest-auto-spies/-/jest-auto-spies-3.0.0.tgz#29ebff558880d8a5f691c5c9a5e14e6bbf834b81"
+  integrity sha512-8CAszt3ngbL0fRZ2uOUPeduVJ7AV2VCnwWDh3f5aysdUlWiLw1tVgn70YapSdskDAW7w0UIYlbjIlYnt79c9Zw==
+  dependencies:
+    "@hirez_io/auto-spies-core" "3.0.0"
 
 jest-changed-files@^29.7.0:
   version "29.7.0"
