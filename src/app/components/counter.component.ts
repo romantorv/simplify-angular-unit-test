@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
-import {
-  addValue,
-  getCounterCalculating,
-  getCounterError,
-  getCounterValue,
-  resetValue,
-} from '../store/counter.store';
-import { map, startWith } from 'rxjs';
+import { CounterService } from '../store/counter.service';
 
 @Component({
   selector: 'ng-counter',
@@ -42,23 +34,21 @@ import { map, startWith } from 'rxjs';
   `,
 })
 export class CounterComponent {
-  totalValue$ = this.store.select(getCounterValue);
-  errorMessage$ = this.store
-    .select(getCounterError)
-    .pipe(map((error) => error?.message ?? null));
-  loading$ = this.store.select(getCounterCalculating).pipe(startWith(false));
+  totalValue$ = this.counterService.counterValue$;
+  errorMessage$ = this.counterService.counterErrorMessage$;
+  loading$ = this.counterService.counterLoading$;
 
-  constructor(private store: Store) {}
+  constructor(private counterService: CounterService) {}
 
   onPressSuccess(): void {
-    this.store.dispatch(addValue({ value: 1 }));
+    this.counterService.addValue(1);
   }
 
   onPressFailed(): void {
-    this.store.dispatch(addValue({ value: 10 }));
+    this.counterService.addValue(10);
   }
 
   onPressReset(): void {
-    this.store.dispatch(resetValue());
+    this.counterService.resetValue();
   }
 }
