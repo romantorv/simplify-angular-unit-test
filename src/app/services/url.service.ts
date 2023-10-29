@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Env } from '../tokens';
 import { map } from 'rxjs';
 
-interface ArticleResponse {
+export interface ArticleResponse {
   id: number;
   title: string;
   createdAt: string;
