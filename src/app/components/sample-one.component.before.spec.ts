@@ -1,7 +1,8 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SampleOneComponent } from './sample-one.component';
-import { ConvertToSnake } from '../pipes/string.pipe';
+import { ConvertToSnack } from '../pipes/string.pipe';
+import { BlockComponent } from './block.component';
 
 describe('SampleOneComponent', () => {
   let fixture: ComponentFixture<SampleOneComponent>;
@@ -9,8 +10,7 @@ describe('SampleOneComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SampleOneComponent, ConvertToSnake],
-      schemas: [NO_ERRORS_SCHEMA],
+      declarations: [SampleOneComponent, BlockComponent, ConvertToSnack],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SampleOneComponent);
@@ -25,9 +25,8 @@ describe('SampleOneComponent', () => {
   });
 
   it('should render correct content', () => {
-    setupComponent();
     const testName = 'John Doe';
-    component.name = testName;
+    component.fullName = testName;
     const expectedName = ConvertToSnack.prototype.transform(testName);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;

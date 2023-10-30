@@ -9,7 +9,7 @@ interface NameObject {
   selector: 'sample-one',
   template: `
     <h1>Case #1: Having child components with logic and pipes</h1>
-    <p>Hello {{ name | convertToSnake }}</p>
+    <p>Hello {{ fullName | convertToSnake }}</p>
     <div>
       <block [name]="nameObject.firstName"></block>
       <block [name]="nameObject.lastName"></block>

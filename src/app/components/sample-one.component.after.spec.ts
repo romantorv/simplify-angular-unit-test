@@ -1,7 +1,7 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SampleOneComponent } from './sample-one.component';
-import { MockConvertToSnack } from '../pipes/string.pipe.mocks';
+import { MockConvertToSnack } from '../pipes/string.pipe.mock';
 
 describe('SampleOneComponent', () => {
   let fixture: ComponentFixture<SampleOneComponent>;
@@ -26,7 +26,7 @@ describe('SampleOneComponent', () => {
 
   it('should render correct content', () => {
     const inputName = 'John Doe';
-    component.name = inputName;
+    component.fullName = inputName;
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('p').textContent).toContain(
