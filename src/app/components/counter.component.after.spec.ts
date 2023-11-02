@@ -47,4 +47,12 @@ describe('CounterComponent', () => {
       expect(button.disabled).toBe(true);
     });
   });
+
+  describe('totalValue$', () => {
+    it.todo('should display the correct value');
+  });
+
+  describe('onPressSuccess', () => {
+    it.todo('should call counterService.addValue with input value is 1');
+  });
 });
